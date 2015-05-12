@@ -14,15 +14,17 @@ RUN npm install -g bower
 RUN npm install -g forever
 
 # Define mountable directories.
-VOLUME ["/app"]
+# VOLUME ["/app"]
 
 # Define working directory.
-WORKDIR /app
 
 RUN git clone https://github.com/eces/hello-ecs.git --branch master /app
+
+WORKDIR /app
+
 RUN npm install
 
 # Define default command.
-CMD ["forever start -l access.log -o out.log -e err.log -a /app/index.js"]
+CMD ["DEBUG=hello-ecs:* ./bin/www"]
 
 EXPOSE 9000
