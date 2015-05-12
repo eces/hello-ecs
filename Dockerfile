@@ -25,6 +25,6 @@ WORKDIR /app
 RUN npm install
 
 # Define default command.
-CMD ["DEBUG=hello-ecs:* ./bin/www"]
+CMD ["/bin/bash", "DEBUG=hello-ecs:* ./bin/www"]
 
 EXPOSE 9000
