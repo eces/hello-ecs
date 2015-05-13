@@ -24,9 +24,10 @@ WORKDIR /app
 
 RUN npm install
 
-# Define default command.
+RUN export DEBUG=hello-ecs:*
+
 CMD ["/bin/bash"]
 
-ENTRYPOINT ["DEBUG=hello-ecs:*", "./bin/www"]
+ENTRYPOINT npm start
 
 EXPOSE 9000
