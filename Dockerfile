@@ -25,7 +25,7 @@ RUN npm install
 
 RUN export DEBUG=hello-ecs:*
 
-RUN echo "IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
+# RUN echo "IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 
 CMD ["/bin/bash"]
 
