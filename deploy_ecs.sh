@@ -5,8 +5,9 @@ SHA1=$1
 docker push quay.io/eces/hello-ecs
 
 aws ecs register-task-definition --cli-input-json file://$(pwd)/ecs_task_definition.json
-aws ecs run-task --cluster default --task-definition zari-task --count 1
-aws ecs list-tasks --cluster default
+# aws ecs run-task --cluster default --task-definition zari-task --count 1
+aws ecs update-service --cluster default --service zari-app --task-definition zari-task --desired-count 1
+# aws ecs list-services --cluster default
 # aws ecs list-task-definitions
 
 
