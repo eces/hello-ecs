@@ -4,7 +4,7 @@
     {
       "name": "zari-app",
       "image": "quay.io/eces/hello-ecs",
-      "cpu": 10,
+      "cpu": 128,
       "memory": 300,
       "entryPoint": [
       ],
@@ -19,7 +19,7 @@
         }
       ],
       "command": [
-        
+
       ],
       "portMappings": [
         {
@@ -30,22 +30,13 @@
       "volumesFrom": [],
       "links": [],
       "mountPoints": [
-        {
-          "sourceVolume": "my-vol",
-          "containerPath": "/my-vol",
-          "readOnly": false
-        }
+        
       ],
       "essential": true
     }
   ],
   "volumes": [
-    {
-      "name": "my-vol",
-      "host": {
-        "sourcePath": "/ecs/my-vol"
-      }
-    }
+    
   ]
 }
 
