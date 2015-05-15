@@ -1,0 +1,16 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Authentication": {
+    "Bucket": "bellkev-shared",
+    "Key": "dockercfg"
+  },
+  "Image": {
+    "Name": "quay.io/eces/hello-ecs:<TAG>",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "9000"
+    }
+  ]
+}
