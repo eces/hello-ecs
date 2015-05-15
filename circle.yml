@@ -12,6 +12,7 @@ dependencies:
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
     - docker build -t quay.io/eces/hello-ecs .
     - mkdir -p ~/docker; docker save quay.io/eces/hello-ecs > ~/docker/image.tar
+    - sudo pip install awscli
 
 test:
   override:
