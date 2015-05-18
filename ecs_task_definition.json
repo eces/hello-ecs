@@ -3,23 +3,14 @@
   "containerDefinitions": [
     {
       "name": "zari-app",
-      "image": "quay.io/eces/hello-ecs",
-      "cpu": 128,
-      "memory": 300,
+      "image": "quay.io/yellotravel/zari",
+      "cpu": 512,
+      "memory": 498,
       "entryPoint": [
       ],
       "environment": [
-        { 
-          "name": "ECS_ENGINE_AUTH_TYPE",
-          "value": "docker"
-        },
-        {
-          "name": "ECS_ENGINE_AUTH_DATA",
-          "value": "{\"quay.io\":{\"auth\":\"eWVsbG90cmF2ZWwrcm9ib3Q6Uko0Nks5QVQyOFcyWVlKOEVRTERITk02WjhNOTVURDc1NU5FQkYxOFYxV0lYTUNVMEFQQTNIM1BOQVFENEI2Mg==\",\"email\":\"\"}}"
-        }
       ],
       "command": [
-
       ],
       "portMappings": [
         {

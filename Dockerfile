@@ -16,6 +16,13 @@ RUN npm install -g forever
 # Define mountable directories.
 # VOLUME ["/app"]
 
+WORKDIR /app
+
+# RUN echo "IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
+
+RUN mkdir -p /root/.ssh/
+
+ADD ~/.ssh/id_circleci_github /.ssh/
 
 RUN git clone https://github.com/eces/hello-ecs.git --branch master /app
 
@@ -24,8 +31,6 @@ WORKDIR /app
 RUN npm install
 
 RUN export DEBUG=hello-ecs:*
-
-# RUN echo "IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 
 CMD ["/bin/bash"]
 
