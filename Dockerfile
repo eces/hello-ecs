@@ -18,12 +18,12 @@ RUN npm install -g forever
 
 WORKDIR /app
 
-# RUN mkdir -p /root/.ssh/
-ADD ssh/ /root/.ssh/
-# RUN touch /root/.ssh/known_hosts
-RUN chmod -R 600 /root/.ssh/
+ADD .ssh/ /root/.ssh/
 
-# RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
+RUN chown -R root:root /root/.ssh/
+RUN chmod -R 600 /root/.ssh/
+RUN eval "$(ssh-agent -s)"
+RUN ssh-add /root/.ssh/id_circleci_github
 
 RUN git clone https://github.com/eces/hello-ecs.git --branch master /app
 
@@ -38,3 +38,11 @@ CMD ["/bin/bash"]
 ENTRYPOINT npm start
 
 EXPOSE 9000
+
+
+# RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
+# RUN echo "IdentityFile /root/.ssh/*" >> /etc/ssh/ssh_config
+# RUN restorecon -Rv ~/.ssh
+# RUN restorecon -Rv /root/.ssh
+
+# docker run -it -v $(pwd)/ssh:/root/.ssh centos:6 /bin/bash
