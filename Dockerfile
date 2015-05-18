@@ -18,7 +18,7 @@ RUN npm install -g forever
 
 WORKDIR /app
 
-RUN mkdir -p /root/.ssh/
+# RUN mkdir -p /root/.ssh/
 ADD ssh/ /root/.ssh/
 # RUN touch /root/.ssh/known_hosts
 RUN chmod -R 600 /root/.ssh/
