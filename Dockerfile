@@ -14,19 +14,20 @@ RUN npm install -g bower
 RUN npm install -g forever
 
 # Define mountable directories.
-# VOLUME ["/app"]
+VOLUME ["/app"]
 
-ADD .ssh/ /root/.ssh/
+COPY ~/hello-ecs /app
+# ADD .ssh/ /root/.ssh/
 
-RUN ls -alF /root/.ssh
+# RUN ls -alF /root/.ssh
 
-RUN eval "$(ssh-agent -s)"
-RUN chown -R root:root /root/.ssh/
-RUN chmod -R 600 /root/.ssh/
-RUN ssh-add /root/.ssh/id_circleci_github
-RUN ssh -T git@github.com
+# RUN eval "$(ssh-agent -s)"
+# RUN chown -R root:root /root/.ssh/
+# RUN chmod -R 600 /root/.ssh/
+# RUN ssh-add /root/.ssh/id_circleci_github
+# RUN ssh -T git@github.com
 
-RUN git clone git@github.com:eces/hello-ecs.git --branch master /app
+# RUN git clone git@github.com:eces/hello-ecs.git --branch master /app
 
 WORKDIR /app
 
