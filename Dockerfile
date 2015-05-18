@@ -21,7 +21,7 @@ WORKDIR /app
 
 RUN mkdir -p /root/.ssh/
 
-ADD ~/.ssh/id_circleci_github /root/.ssh/
+ADD id_circleci_github /root/.ssh/
 
 RUN echo "IdentityFile /root/.ssh/id_circleci_github" >> /etc/ssh/ssh_config
 
