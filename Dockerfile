@@ -16,7 +16,7 @@ RUN npm install -g forever
 # Define mountable directories.
 # VOLUME ["/app"]
 
-COPY /home/ubuntu/hello-ecs /app
+COPY . /app
 # ADD .ssh/ /root/.ssh/
 
 # RUN ls -alF /root/.ssh
