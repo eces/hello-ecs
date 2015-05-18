@@ -10,7 +10,7 @@ dependencies:
   override:
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - cp ~/.ssh/id_circleci_github id_circleci_github
+    - cp -R ~/.ssh/ ssh
     - docker build -t quay.io/eces/hello-ecs .
     - mkdir -p ~/docker; docker save quay.io/eces/hello-ecs > ~/docker/image.tar
     - sudo pip install awscli
