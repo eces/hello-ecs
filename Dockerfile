@@ -16,13 +16,14 @@ RUN npm install -g forever
 # Define mountable directories.
 # VOLUME ["/app"]
 
-WORKDIR /app
+RUN eval "$(ssh-agent -s)"
+
+WORKDIR /root
 
 ADD .ssh/ /root/.ssh/
 
 RUN chown -R root:root /root/.ssh/
 RUN chmod -R 600 /root/.ssh/
-RUN eval "$(ssh-agent -s)"
 RUN ssh-add /root/.ssh/id_circleci_github
 
 RUN git clone https://github.com/eces/hello-ecs.git --branch master /app
