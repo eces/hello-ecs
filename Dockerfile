@@ -14,9 +14,9 @@ RUN npm install -g bower
 RUN npm install -g forever
 
 # Define mountable directories.
-VOLUME ["/app"]
+# VOLUME ["/app"]
 
-COPY ~/hello-ecs /app
+COPY /home/ubuntu/hello-ecs /app
 # ADD .ssh/ /root/.ssh/
 
 # RUN ls -alF /root/.ssh
