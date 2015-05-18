@@ -18,11 +18,15 @@ RUN npm install -g forever
 
 WORKDIR /app
 
-# RUN echo "IdentityFile ~/.ssh/id_rsa" >> /etc/ssh/ssh_config
 
 RUN mkdir -p /root/.ssh/
 
-ADD ~/.ssh/id_circleci_github /.ssh/
+ADD ~/.ssh/id_circleci_github /root/.ssh/
+
+RUN echo "IdentityFile /root/.ssh/id_circleci_github" >> /etc/ssh/ssh_config
+
+# Host github.com
+# IdentitiesOnly yes
 
 RUN git clone https://github.com/eces/hello-ecs.git --branch master /app
 
